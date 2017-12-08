@@ -1,4 +1,4 @@
-package warsztaty_1;
+package warsztaty_1.warsztaty_1;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -9,24 +9,26 @@ public class Task2 {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-		Random generator = new Random(1-50);
+		Random generator = new Random();
 		//int generator = ThreadLocalRandom.current().nextInt(1, 50 + 1);
 		
 		int[] generated = new int[6];
 		int i=0;
 		while (i<6){
-			int number = generator.nextInt(50-1);
-			int prev=0;
-			if(number!=prev){
-				generated[i]=number;
-				prev=number;
+			int number = generator.nextInt(50)+1;
+			
+			Arrays.sort(generated);
+			boolean contain=true;
+			contain=contains(generated, number);
+			if(contain==false){
+				generated[0]=number;
 				i++;
 			}
 		}
 		
 		int[] intArr=new int[6];
 		int j=0;
-		boolean contain=true;
+		
 		while(j<6){
 			
 			System.out.println("Enter an integer from 1 to 49 included");
@@ -38,10 +40,11 @@ public class Task2 {
 			}
 			int number = scan.nextInt();
 			
+			Arrays.sort(intArr);
+			boolean contain=true;
 			contain = contains(intArr, number);
 			if(number>0 && number<50 && contain==false){
-				intArr[j]=number;
-				//previous=number;
+				intArr[0]=number;
 				j++;
 			}else{
 				System.out.println("Wrong number");

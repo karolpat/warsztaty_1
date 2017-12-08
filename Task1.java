@@ -1,4 +1,4 @@
-package warsztaty_1;
+package warsztaty_1.warsztaty_1;
 
 import java.net.Socket;
 import java.util.InputMismatchException;
@@ -27,9 +27,9 @@ public class Task1 {
 //	}
 	static void game(){
 		
-		Random generator = new Random(100);
+		Random generator = new Random();
 		Scanner scan = new Scanner(System.in);
-		int value=generator.nextInt(100);
+		int value=generator.nextInt(101)+1;
 		
 		boolean result=false;
 		
